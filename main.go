@@ -4,20 +4,12 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
 func toBase36(n int) string {
-	const chars = "0123456789abcdefghijklmnopqrstuvwxyz"
-	if n == 0 {
-		return "0"
-	}
-	var out string
-	for n > 0 {
-		out = string(chars[n%36]) + out
-		n /= 36
-	}
-	return out
+	return strconv.FormatInt(int64(n), 36)
 }
 
 func main() {
